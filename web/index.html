@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prompt Lab</title>
+    <meta
+      name="description"
+      content="Offline prompt engineering playground that turns rough requirements into structured prompts."
+    >
+    <link rel="stylesheet" href="/web/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-top">
+          <p class="eyebrow" data-i18n="hero.eyebrow">No API key required</p>
+          <label class="language-switcher" for="ui-language">
+            <span data-i18n="form.language">Language</span>
+            <select id="ui-language" name="ui-language" aria-label="Language"></select>
+          </label>
+        </div>
+        <h1 id="page-title" data-i18n="hero.title">Turn rough requirements into structured prompts.</h1>
+        <p class="hero-copy" data-i18n="hero.copy">
+          Prompt Lab is an offline prompt builder for drafting reusable AI prompts from plain-language task descriptions.
+        </p>
+      </section>
+
+      <section class="workspace" aria-label="Prompt builder">
+        <form class="composer" id="prompt-form">
+          <label for="requirement" data-i18n="form.label">Describe the prompt you need</label>
+          <textarea
+            id="requirement"
+            name="requirement"
+            rows="9"
+            placeholder="Write a prompt for a support bot that answers refund policy questions politely and avoids unsupported promises."
+          ></textarea>
+          <div class="actions">
+            <button id="generate-prompt" type="button" data-i18n="actions.generate">Generate Prompt</button>
+            <button class="ghost" id="copy-prompt" type="button" data-i18n="actions.copy">Copy Output</button>
+          </div>
+          <p class="hint" id="status" data-i18n="status.ready">Runs locally in your browser. No model call, no API key, no tracking.</p>
+        </form>
+
+        <aside class="result-card" aria-label="Generated prompt result">
+          <div class="result-meta">
+            <span id="category">Category: Waiting for input</span>
+            <span id="language">Language: Auto</span>
+          </div>
+          <pre id="generated-prompt">Describe a task and generate a structured prompt.</pre>
+        </aside>
+      </section>
+
+      <section class="details" aria-label="Prompt analysis">
+        <article>
+          <h2 data-i18n="details.variables">Detected Variables</h2>
+          <ul id="variables"></ul>
+        </article>
+        <article>
+          <h2 data-i18n="details.patterns">Patterns Used</h2>
+          <ul id="patterns"></ul>
+        </article>
+        <article>
+          <h2 data-i18n="details.examples">Try Examples</h2>
+          <div class="examples" id="examples"></div>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="/web/app.js"></script>
+  </body>
+</html>

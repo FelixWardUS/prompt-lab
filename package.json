@@ -1,0 +1,25 @@
+{
+  "name": "prompt-lab",
+  "version": "0.1.0",
+  "description": "Offline prompt engineering playground that turns rough requirements into structured prompts.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "prompt-lab": "./bin/prompt-lab.mjs"
+  },
+  "scripts": {
+    "test": "node --test",
+    "cli": "node ./bin/prompt-lab.mjs",
+    "serve": "node ./scripts/serve.mjs"
+  },
+  "keywords": [
+    "prompt-engineering",
+    "offline",
+    "cli",
+    "prompt-builder"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
