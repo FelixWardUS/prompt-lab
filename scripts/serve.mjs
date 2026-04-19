@@ -17,7 +17,8 @@ const mimeTypes = new Map([
 ]);
 
 function safePath(urlPath) {
-  const requested = urlPath === '/' ? '/web/index.html' : decodeURIComponent(urlPath);
+  const decodedPath = decodeURIComponent(urlPath);
+  const requested = decodedPath.endsWith('/') ? `${decodedPath}index.html` : decodedPath;
   const resolved = normalize(join(root, requested));
 
   if (!resolved.startsWith(root)) {
@@ -29,6 +30,13 @@ function safePath(urlPath) {
 
 const server = createServer(async (request, response) => {
   const url = new URL(request.url, `http://${request.headers.host}`);
+
+  if (url.pathname === '/') {
+    response.writeHead(302, { 'Location': '/web/' });
+    response.end();
+    return;
+  }
+
   const filePath = safePath(url.pathname);
 
   if (!filePath) {

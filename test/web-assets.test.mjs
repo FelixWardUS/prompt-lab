@@ -7,8 +7,8 @@ test('web page loads the browser app and exposes the core interaction', async ()
 
   assert.match(html, /<textarea[^>]+id="requirement"/);
   assert.match(html, /id="generated-prompt"/);
-  assert.match(html, /src="\/web\/app\.js"/);
-  assert.match(html, /href="\/web\/styles\.css"/);
+  assert.match(html, /src="\.\/app\.js"/);
+  assert.match(html, /href="\.\/styles\.css"/);
 });
 
 test('generate button does not trigger native form submission if JavaScript is unavailable', async () => {
@@ -40,5 +40,6 @@ test('local server serves the repo root so web can import shared modules', async
   const server = await readFile('./scripts/serve.mjs', 'utf8');
 
   assert.match(server, /createServer/);
-  assert.match(server, /web\/index\.html/);
+  assert.match(server, /Location': '\/web\/'/);
+  assert.match(server, /endsWith\('\/'\)/);
 });

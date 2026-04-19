@@ -10,7 +10,8 @@
   "scripts": {
     "test": "node --test",
     "cli": "node ./bin/prompt-lab.mjs",
-    "serve": "node ./scripts/serve.mjs"
+    "serve": "node ./scripts/serve.mjs",
+    "build:pages": "node ./scripts/build-pages.mjs"
   },
   "keywords": [
     "prompt-engineering",
