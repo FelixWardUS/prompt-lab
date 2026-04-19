@@ -4,6 +4,10 @@ Offline prompt engineering playground that turns rough task descriptions into st
 
 Prompt Lab does not call an AI model. It uses deterministic prompt patterns, keyword analysis, and category-specific templates, so it runs without an API key and is easy to inspect.
 
+## Demo
+
+Try it online: https://felixwardus.github.io/prompt-lab/
+
 ## Features
 
 - Converts a rough requirement into a structured prompt.
