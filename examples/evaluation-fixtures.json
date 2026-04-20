@@ -1,0 +1,68 @@
+[
+  {
+    "name": "marketing launch campaign",
+    "requirement": "Create a launch campaign prompt for a new productivity app with audience segments and channel ideas.",
+    "expected": {
+      "category": "marketing",
+      "language": "English",
+      "variables": ["campaign_goal", "target_audience", "offer", "channels"],
+      "patterns": ["few-shot-ready", "verification-loop"],
+      "promptIncludes": ["Campaign Brief", "Audience Segments", "Success Metrics"]
+    }
+  },
+  {
+    "name": "research competitor brief",
+    "requirement": "Build a research brief prompt that compares competitors and summarizes evidence from sources.",
+    "expected": {
+      "category": "research",
+      "language": "English",
+      "variables": ["research_question", "source_material", "comparison_criteria"],
+      "patterns": ["source-grounding", "verification-loop"],
+      "promptIncludes": ["Research Question", "Evidence Summary", "Gaps"]
+    }
+  },
+  {
+    "name": "data analysis csv",
+    "requirement": "Write a data analysis prompt for a CSV dataset that explains trends and caveats.",
+    "expected": {
+      "category": "data-analysis",
+      "language": "English",
+      "variables": ["dataset_description", "analysis_goal", "known_limitations"],
+      "patterns": ["source-grounding", "verification-loop"],
+      "promptIncludes": ["Analysis Plan", "Key Metrics", "Caveats"]
+    }
+  },
+  {
+    "name": "legal contract review",
+    "requirement": "Draft a legal review prompt for contract clauses that flags risks without giving legal advice.",
+    "expected": {
+      "category": "legal-review",
+      "language": "English",
+      "variables": ["document_excerpt", "review_goal", "jurisdiction_or_policy_context"],
+      "patterns": ["source-grounding", "safety-boundaries"],
+      "promptIncludes": ["Risk Flags", "Questions for Counsel", "Non-advice Disclaimer"]
+    }
+  },
+  {
+    "name": "learning sql tutor",
+    "requirement": "Create a tutor prompt that teaches SQL joins with practice exercises and feedback.",
+    "expected": {
+      "category": "learning",
+      "language": "English",
+      "variables": ["topic", "learner_level", "practice_goal"],
+      "patterns": ["few-shot-ready", "verification-loop"],
+      "promptIncludes": ["Learning Goal", "Practice Plan", "Feedback Rubric"]
+    }
+  },
+  {
+    "name": "product roadmap prioritization",
+    "requirement": "Write a product management prompt for prioritizing roadmap features from customer feedback.",
+    "expected": {
+      "category": "product-management",
+      "language": "English",
+      "variables": ["product_goal", "user_feedback", "constraints"],
+      "patterns": ["source-grounding", "verification-loop"],
+      "promptIncludes": ["Product Context", "Prioritization", "Next Experiments"]
+    }
+  }
+]
