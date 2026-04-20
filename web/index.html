@@ -39,6 +39,16 @@
             <button id="generate-prompt" type="button" data-i18n="actions.generate">Generate Prompt</button>
             <button class="ghost" id="copy-prompt" type="button" data-i18n="actions.copy">Copy Output</button>
           </div>
+          <div class="draft-actions" aria-label="Draft tools">
+            <button class="ghost" id="save-draft" type="button" data-i18n="actions.saveDraft">Save Draft</button>
+            <button class="ghost" id="load-draft" type="button" data-i18n="actions.loadDraft">Load Draft</button>
+            <button class="ghost" id="export-draft" type="button" data-i18n="actions.exportDraft">Export JSON</button>
+            <label class="file-button ghost" for="import-draft">
+              <span data-i18n="actions.importDraft">Import JSON</span>
+              <input id="import-draft" type="file" accept="application/json,.json">
+            </label>
+            <button class="ghost" id="clear-draft" type="button" data-i18n="actions.clearDraft">Clear Draft</button>
+          </div>
           <p class="hint" id="status" data-i18n="status.ready">Runs locally in your browser. No model call, no API key, no tracking.</p>
         </form>
 
@@ -59,6 +69,10 @@
         <article>
           <h2 data-i18n="details.patterns">Patterns Used</h2>
           <ul id="patterns"></ul>
+        </article>
+        <article>
+          <h2 data-i18n="details.quality">Prompt Quality Checklist</h2>
+          <ul id="quality-checks"></ul>
         </article>
         <article>
           <h2 data-i18n="details.examples">Try Examples</h2>

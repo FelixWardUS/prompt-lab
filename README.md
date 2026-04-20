@@ -16,11 +16,16 @@ Try it online: https://felixwardus.github.io/prompt-lab/
 - Provides both a browser UI and a CLI from the same shared engine.
 - Runs fully offline after cloning the repository.
 - Localizes the browser UI in English, Simplified Chinese, Hindi, Spanish, Arabic, French, Portuguese, and Japanese.
+- Covers practical prompt categories including marketing, research, data analysis, legal review, learning, and product management.
+- Saves drafts in the browser and imports or exports Prompt Lab drafts as JSON.
+- Scores generated prompts with a deterministic local quality checklist.
+- Includes local fixture evaluation for regression checks.
 
 ## Quick Start
 
 ```bash
 npm test
+npm run evaluate
 npm run cli -- "Summarize meeting notes, extract decisions and action items, and output in Chinese."
 npm run serve
 ```
@@ -34,6 +39,8 @@ http://localhost:4173
 Do not open `web/index.html` by double-clicking it. The browser can block local JavaScript modules from `file://` pages, which prevents the generator from starting.
 
 The browser UI uses your saved language choice first, then your browser language. If neither matches a supported language, it falls back to English.
+
+The browser UI can save one local draft in your browser storage. Use Export JSON when you want a portable draft file, and Import JSON to restore it later.
 
 ## CLI Usage
 
@@ -54,6 +61,16 @@ Pipe input from another command:
 ```bash
 echo "Extract names, dates, and prices from a messy invoice" | npm run cli
 ```
+
+## Local Evaluation
+
+Run deterministic fixture checks:
+
+```bash
+npm run evaluate
+```
+
+The evaluation script checks example requirements against expected categories, variables, prompt patterns, output snippets, and the local prompt quality checklist. It does not call an AI model.
 
 ## Example Output
 
@@ -113,10 +130,10 @@ More details are in [docs/prompt-patterns.md](docs/prompt-patterns.md).
 
 ## Roadmap
 
-- Add more prompt categories and examples.
-- Add import/export for saved prompt drafts.
-- Add optional local-only evaluation examples using fixture outputs.
-- Add a small prompt quality checklist in the UI.
+- Add more localized category copy for the expanded prompt categories.
+- Add named draft collections instead of a single saved browser draft.
+- Add more fixture coverage for multilingual prompts and edge-case category detection.
+- Add optional checklist explanations in exported draft reports.
 
 ## License
 

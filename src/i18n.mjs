@@ -30,12 +30,24 @@ const STRINGS = {
     actions: {
       generate: 'Generate Prompt',
       copy: 'Copy Output',
+      saveDraft: 'Save Draft',
+      loadDraft: 'Load Draft',
+      exportDraft: 'Export JSON',
+      importDraft: 'Import JSON',
+      clearDraft: 'Clear Draft',
     },
     status: {
       ready: 'Runs locally in your browser. No model call, no API key, no tracking.',
       generated: 'Prompt generated locally. No API call was made.',
       copied: 'Generated prompt copied.',
       empty: 'Please describe the task you want to turn into a prompt.',
+      draftSaved: 'Draft saved in this browser.',
+      draftLoaded: 'Draft loaded.',
+      draftMissing: 'No saved draft found in this browser.',
+      draftExported: 'Draft exported as JSON.',
+      draftImported: 'Draft imported.',
+      draftCleared: 'Saved draft cleared.',
+      draftInvalid: 'That file is not a valid Prompt Lab draft.',
     },
     result: {
       categoryLabel: 'Category',
@@ -47,7 +59,13 @@ const STRINGS = {
     details: {
       variables: 'Detected Variables',
       patterns: 'Patterns Used',
+      quality: 'Prompt Quality Checklist',
       examples: 'Try Examples',
+    },
+    quality: {
+      waiting: 'Generate a prompt to see quality checks.',
+      pass: 'Pass',
+      review: 'Review',
     },
     examples: [
       'Write a prompt for a support bot that answers refund policy questions politely and avoids unsupported promises.',
@@ -79,12 +97,24 @@ const STRINGS = {
     actions: {
       generate: '生成提示词',
       copy: '复制结果',
+      saveDraft: '保存草稿',
+      loadDraft: '载入草稿',
+      exportDraft: '导出 JSON',
+      importDraft: '导入 JSON',
+      clearDraft: '清除草稿',
     },
     status: {
       ready: '在浏览器本地运行。不调用模型，不需要 API key，也不做追踪。',
       generated: '已在本地生成提示词。没有发起 API 调用。',
       copied: '已复制生成的提示词。',
       empty: '请描述你想转换成提示词的任务。',
+      draftSaved: '草稿已保存在当前浏览器。',
+      draftLoaded: '已载入草稿。',
+      draftMissing: '当前浏览器没有已保存的草稿。',
+      draftExported: '草稿已导出为 JSON。',
+      draftImported: '已导入草稿。',
+      draftCleared: '已清除保存的草稿。',
+      draftInvalid: '这个文件不是有效的 Prompt Lab 草稿。',
     },
     result: {
       categoryLabel: '类别',
@@ -96,7 +126,13 @@ const STRINGS = {
     details: {
       variables: '检测到的变量',
       patterns: '使用的模式',
+      quality: '提示词质量检查',
       examples: '示例',
+    },
+    quality: {
+      waiting: '生成提示词后查看质量检查。',
+      pass: '通过',
+      review: '待检查',
     },
     examples: [
       '帮我写一个客服机器人提示词，用来礼貌回答退款政策问题，并避免没有依据的承诺。',

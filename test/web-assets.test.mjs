@@ -36,6 +36,33 @@ test('browser app reuses the shared prompt engine', async () => {
   assert.match(app, /navigator\.languages/);
 });
 
+test('browser app exposes draft import export controls', async () => {
+  const html = await readFile('./web/index.html', 'utf8');
+  const app = await readFile('./web/app.js', 'utf8');
+
+  assert.match(html, /id="save-draft"/);
+  assert.match(html, /id="load-draft"/);
+  assert.match(html, /id="export-draft"/);
+  assert.match(html, /id="import-draft"/);
+  assert.match(html, /id="clear-draft"/);
+  assert.match(html, /type="file"/);
+  assert.match(app, /PROMPT_DRAFT_STORAGE_KEY/);
+  assert.match(app, /localStorage/);
+  assert.match(app, /Blob/);
+  assert.match(app, /FileReader/);
+});
+
+test('browser app renders a prompt quality checklist', async () => {
+  const html = await readFile('./web/index.html', 'utf8');
+  const app = await readFile('./web/app.js', 'utf8');
+
+  assert.match(html, /id="quality-checks"/);
+  assert.match(html, /details\.quality/);
+  assert.match(app, /from '\.\.\/src\/prompt-quality\.mjs'/);
+  assert.match(app, /evaluatePromptQuality/);
+  assert.match(app, /renderQuality/);
+});
+
 test('local server serves the repo root so web can import shared modules', async () => {
   const server = await readFile('./scripts/serve.mjs', 'utf8');
 
