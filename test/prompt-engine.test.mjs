@@ -46,6 +46,62 @@ test('detects automation program requests instead of treating 写 as copywriting
   assert.doesNotMatch(result.prompt, /Why This Works/);
 });
 
+[
+  {
+    name: 'detects marketing prompt requests',
+    requirement: 'Create a launch campaign prompt for a new productivity app with audience segments and channel ideas.',
+    category: 'marketing',
+    promptSnippet: /Campaign Brief/,
+  },
+  {
+    name: 'detects research prompt requests',
+    requirement: 'Build a research brief prompt that compares competitors and summarizes evidence from sources.',
+    category: 'research',
+    promptSnippet: /Research Question/,
+  },
+  {
+    name: 'detects data analysis prompt requests',
+    requirement: 'Write a data analysis prompt for a CSV dataset that explains trends and caveats.',
+    category: 'data-analysis',
+    promptSnippet: /Analysis Plan/,
+  },
+  {
+    name: 'detects legal review prompt requests',
+    requirement: 'Draft a legal review prompt for contract clauses that flags risks without giving legal advice.',
+    category: 'legal-review',
+    promptSnippet: /Risk Flags/,
+  },
+  {
+    name: 'detects learning prompt requests',
+    requirement: 'Create a tutor prompt that teaches SQL joins with practice exercises and feedback.',
+    category: 'learning',
+    promptSnippet: /Practice Plan/,
+  },
+  {
+    name: 'detects product management prompt requests',
+    requirement: 'Write a product management prompt for prioritizing roadmap features from customer feedback.',
+    category: 'product-management',
+    promptSnippet: /Prioritization/,
+  },
+].forEach(({ name, requirement, category, promptSnippet }) => {
+  test(name, () => {
+    const result = generatePrompt(requirement);
+
+    assert.equal(result.analysis.category.id, category);
+    assert.match(result.prompt, promptSnippet);
+  });
+});
+
+test('keeps unlocalized category copy when prompt headings are localized', () => {
+  const result = generatePrompt('帮我写一个新品发布 marketing campaign prompt，要包含受众、渠道和指标。');
+
+  assert.equal(result.analysis.language, 'Chinese');
+  assert.equal(result.analysis.category.id, 'marketing');
+  assert.equal(result.analysis.category.label, 'Marketing campaign');
+  assert.match(result.prompt, /角色：You are a marketing strategist/);
+  assert.doesNotMatch(result.prompt, /通用任务/);
+});
+
 test('infers Chinese output language from Chinese input', () => {
   const result = generatePrompt('写个跟单机器人程序');
 
