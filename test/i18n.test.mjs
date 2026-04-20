@@ -34,3 +34,37 @@ test('translate falls back to English for missing keys', () => {
   assert.equal(translate('zh-CN', 'actions.generate'), '生成提示词');
   assert.equal(translate('xx', 'actions.generate'), 'Generate Prompt');
 });
+
+test('new draft and quality UI copy is localized for every supported language', () => {
+  const localizedKeys = [
+    'actions.saveDraft',
+    'actions.loadDraft',
+    'actions.exportDraft',
+    'actions.importDraft',
+    'actions.clearDraft',
+    'status.draftSaved',
+    'status.draftLoaded',
+    'status.draftMissing',
+    'status.draftExported',
+    'status.draftImported',
+    'status.draftCleared',
+    'status.draftInvalid',
+    'details.quality',
+    'quality.waiting',
+    'quality.pass',
+    'quality.review',
+  ];
+
+  for (const language of SUPPORTED_LANGUAGES.filter((item) => item.code !== DEFAULT_LANGUAGE)) {
+    for (const key of localizedKeys) {
+      assert.notEqual(
+        translate(language.code, key),
+        translate(DEFAULT_LANGUAGE, key),
+        `${language.code} should localize ${key}`
+      );
+    }
+  }
+
+  assert.equal(translate('ja', 'details.quality'), 'プロンプト品質チェックリスト');
+  assert.equal(translate('ja', 'quality.waiting'), 'プロンプトを生成すると品質チェックが表示されます。');
+});

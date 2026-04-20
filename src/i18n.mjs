@@ -164,12 +164,24 @@ const STRINGS = {
     actions: {
       generate: 'प्रॉम्प्ट बनाएं',
       copy: 'आउटपुट कॉपी करें',
+      saveDraft: 'ड्राफ्ट सेव करें',
+      loadDraft: 'ड्राफ्ट लोड करें',
+      exportDraft: 'JSON निर्यात करें',
+      importDraft: 'JSON आयात करें',
+      clearDraft: 'ड्राफ्ट हटाएं',
     },
     status: {
       ready: 'आपके browser में locally चलता है। कोई model call, API key या tracking नहीं।',
       generated: 'प्रॉम्प्ट locally generate हुआ। कोई API call नहीं हुई।',
       copied: 'Generated prompt copy हो गया।',
       empty: 'जिस task को prompt में बदलना है उसका वर्णन करें।',
+      draftSaved: 'ड्राफ्ट इस ब्राउज़र में सेव हो गया।',
+      draftLoaded: 'ड्राफ्ट लोड हो गया।',
+      draftMissing: 'इस ब्राउज़र में कोई सेव किया हुआ ड्राफ्ट नहीं मिला।',
+      draftExported: 'ड्राफ्ट JSON के रूप में निर्यात हो गया।',
+      draftImported: 'ड्राफ्ट आयात हो गया।',
+      draftCleared: 'सेव किया हुआ ड्राफ्ट हटा दिया गया।',
+      draftInvalid: 'यह फ़ाइल वैध Prompt Lab ड्राफ्ट नहीं है।',
     },
     result: {
       categoryLabel: 'श्रेणी',
@@ -181,7 +193,13 @@ const STRINGS = {
     details: {
       variables: 'Detected Variables',
       patterns: 'Patterns Used',
+      quality: 'प्रॉम्प्ट गुणवत्ता चेकलिस्ट',
       examples: 'Examples',
+    },
+    quality: {
+      waiting: 'प्रॉम्प्ट बनाएं ताकि गुणवत्ता जांच दिखे।',
+      pass: 'पास',
+      review: 'समीक्षा करें',
     },
     examples: [
       'एक support bot के लिए prompt लिखें जो refund policy questions का polite जवाब दे और unsupported promises से बचे।',
@@ -207,12 +225,24 @@ const STRINGS = {
     actions: {
       generate: 'Generar prompt',
       copy: 'Copiar resultado',
+      saveDraft: 'Guardar borrador',
+      loadDraft: 'Cargar borrador',
+      exportDraft: 'Exportar JSON',
+      importDraft: 'Importar JSON',
+      clearDraft: 'Borrar borrador',
     },
     status: {
       ready: 'Se ejecuta localmente en tu navegador. Sin llamadas a modelos, sin API key y sin tracking.',
       generated: 'Prompt generado localmente. No se hizo ninguna llamada a API.',
       copied: 'Prompt generado copiado.',
       empty: 'Describe la tarea que quieres convertir en prompt.',
+      draftSaved: 'Borrador guardado en este navegador.',
+      draftLoaded: 'Borrador cargado.',
+      draftMissing: 'No se encontró ningún borrador guardado en este navegador.',
+      draftExported: 'Borrador exportado como JSON.',
+      draftImported: 'Borrador importado.',
+      draftCleared: 'Borrador guardado eliminado.',
+      draftInvalid: 'Este archivo no es un borrador válido de Prompt Lab.',
     },
     result: {
       categoryLabel: 'Categoría',
@@ -224,7 +254,13 @@ const STRINGS = {
     details: {
       variables: 'Variables detectadas',
       patterns: 'Patrones usados',
+      quality: 'Lista de calidad del prompt',
       examples: 'Ejemplos',
+    },
+    quality: {
+      waiting: 'Genera un prompt para ver las comprobaciones de calidad.',
+      pass: 'Aprobado',
+      review: 'Revisar',
     },
     examples: [
       'Escribe un prompt para un bot de soporte que responda preguntas sobre reembolsos con cortesía y evite promesas sin respaldo.',
@@ -250,12 +286,24 @@ const STRINGS = {
     actions: {
       generate: 'إنشاء التعليمة',
       copy: 'نسخ الناتج',
+      saveDraft: 'حفظ المسودة',
+      loadDraft: 'تحميل المسودة',
+      exportDraft: 'تصدير JSON',
+      importDraft: 'استيراد JSON',
+      clearDraft: 'مسح المسودة',
     },
     status: {
       ready: 'يعمل محليًا في المتصفح. لا توجد مكالمة نموذج، ولا مفتاح API، ولا تتبع.',
       generated: 'تم إنشاء التعليمة محليًا. لم يتم إجراء أي مكالمة API.',
       copied: 'تم نسخ التعليمة الناتجة.',
       empty: 'صف المهمة التي تريد تحويلها إلى تعليمة.',
+      draftSaved: 'تم حفظ المسودة في هذا المتصفح.',
+      draftLoaded: 'تم تحميل المسودة.',
+      draftMissing: 'لم يتم العثور على مسودة محفوظة في هذا المتصفح.',
+      draftExported: 'تم تصدير المسودة كملف JSON.',
+      draftImported: 'تم استيراد المسودة.',
+      draftCleared: 'تم مسح المسودة المحفوظة.',
+      draftInvalid: 'هذا الملف ليس مسودة Prompt Lab صالحة.',
     },
     result: {
       categoryLabel: 'الفئة',
@@ -267,7 +315,13 @@ const STRINGS = {
     details: {
       variables: 'المتغيرات المكتشفة',
       patterns: 'الأنماط المستخدمة',
+      quality: 'قائمة فحص جودة التعليمة',
       examples: 'أمثلة',
+    },
+    quality: {
+      waiting: 'أنشئ تعليمة لعرض فحوصات الجودة.',
+      pass: 'ناجح',
+      review: 'مراجعة',
     },
     examples: [
       'اكتب تعليمة لروبوت دعم يجيب عن أسئلة سياسة الاسترداد بلطف ويتجنب الوعود غير المدعومة.',
@@ -293,12 +347,24 @@ const STRINGS = {
     actions: {
       generate: 'Générer le prompt',
       copy: 'Copier le résultat',
+      saveDraft: 'Enregistrer le brouillon',
+      loadDraft: 'Charger le brouillon',
+      exportDraft: 'Exporter JSON',
+      importDraft: 'Importer JSON',
+      clearDraft: 'Effacer le brouillon',
     },
     status: {
       ready: 'Fonctionne localement dans votre navigateur. Aucun appel de modèle, aucune clé API, aucun suivi.',
       generated: 'Prompt généré localement. Aucun appel API effectué.',
       copied: 'Prompt généré copié.',
       empty: 'Décrivez la tâche à convertir en prompt.',
+      draftSaved: 'Brouillon enregistré dans ce navigateur.',
+      draftLoaded: 'Brouillon chargé.',
+      draftMissing: 'Aucun brouillon enregistré trouvé dans ce navigateur.',
+      draftExported: 'Brouillon exporté en JSON.',
+      draftImported: 'Brouillon importé.',
+      draftCleared: 'Brouillon enregistré effacé.',
+      draftInvalid: 'Ce fichier n’est pas un brouillon Prompt Lab valide.',
     },
     result: {
       categoryLabel: 'Catégorie',
@@ -310,7 +376,13 @@ const STRINGS = {
     details: {
       variables: 'Variables détectées',
       patterns: 'Patterns utilisés',
+      quality: 'Liste de contrôle qualité du prompt',
       examples: 'Exemples',
+    },
+    quality: {
+      waiting: 'Générez un prompt pour voir les contrôles qualité.',
+      pass: 'Validé',
+      review: 'À revoir',
     },
     examples: [
       'Rédige un prompt pour un bot support qui répond poliment aux questions de remboursement et évite les promesses non justifiées.',
@@ -336,12 +408,24 @@ const STRINGS = {
     actions: {
       generate: 'Gerar prompt',
       copy: 'Copiar resultado',
+      saveDraft: 'Salvar rascunho',
+      loadDraft: 'Carregar rascunho',
+      exportDraft: 'Exportar JSON',
+      importDraft: 'Importar JSON',
+      clearDraft: 'Limpar rascunho',
     },
     status: {
       ready: 'Roda localmente no navegador. Sem chamada de modelo, sem API key e sem rastreamento.',
       generated: 'Prompt gerado localmente. Nenhuma chamada de API foi feita.',
       copied: 'Prompt gerado copiado.',
       empty: 'Descreva a tarefa que você quer transformar em prompt.',
+      draftSaved: 'Rascunho salvo neste navegador.',
+      draftLoaded: 'Rascunho carregado.',
+      draftMissing: 'Nenhum rascunho salvo foi encontrado neste navegador.',
+      draftExported: 'Rascunho exportado como JSON.',
+      draftImported: 'Rascunho importado.',
+      draftCleared: 'Rascunho salvo removido.',
+      draftInvalid: 'Este arquivo não é um rascunho válido do Prompt Lab.',
     },
     result: {
       categoryLabel: 'Categoria',
@@ -353,7 +437,13 @@ const STRINGS = {
     details: {
       variables: 'Variáveis detectadas',
       patterns: 'Padrões usados',
+      quality: 'Lista de qualidade do prompt',
       examples: 'Exemplos',
+    },
+    quality: {
+      waiting: 'Gere um prompt para ver as verificações de qualidade.',
+      pass: 'Aprovado',
+      review: 'Revisar',
     },
     examples: [
       'Escreva um prompt para um bot de suporte responder perguntas sobre reembolso com educação e evitar promessas sem base.',
@@ -379,12 +469,24 @@ const STRINGS = {
     actions: {
       generate: 'プロンプトを生成',
       copy: '結果をコピー',
+      saveDraft: '下書きを保存',
+      loadDraft: '下書きを読み込む',
+      exportDraft: 'JSON をエクスポート',
+      importDraft: 'JSON をインポート',
+      clearDraft: '下書きをクリア',
     },
     status: {
       ready: 'ブラウザ内でローカル実行します。モデル呼び出し、API key、トラッキングはありません。',
       generated: 'プロンプトをローカルで生成しました。API 呼び出しは行っていません。',
       copied: '生成されたプロンプトをコピーしました。',
       empty: 'プロンプトに変換したいタスクを説明してください。',
+      draftSaved: '下書きをこのブラウザに保存しました。',
+      draftLoaded: '下書きを読み込みました。',
+      draftMissing: 'このブラウザに保存済みの下書きはありません。',
+      draftExported: '下書きを JSON としてエクスポートしました。',
+      draftImported: '下書きをインポートしました。',
+      draftCleared: '保存済みの下書きをクリアしました。',
+      draftInvalid: 'このファイルは有効な Prompt Lab 下書きではありません。',
     },
     result: {
       categoryLabel: 'カテゴリ',
@@ -396,7 +498,13 @@ const STRINGS = {
     details: {
       variables: '検出された変数',
       patterns: '使用したパターン',
+      quality: 'プロンプト品質チェックリスト',
       examples: '例',
+    },
+    quality: {
+      waiting: 'プロンプトを生成すると品質チェックが表示されます。',
+      pass: '合格',
+      review: '確認',
     },
     examples: [
       '返金ポリシーの質問に丁寧に答え、根拠のない約束を避けるサポートボット用プロンプトを書いてください。',
